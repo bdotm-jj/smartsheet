@@ -61,7 +61,7 @@ window.PODS = [
     roster: {
       PM:  ["Torrey Knapp"],
       PJM: ["Andy Oates"],
-      Dev: ["Halina Bobrykava", "Kellie Cohen", "David Swanson", "Bricen Bennett", "Alec Patterson"],
+      Dev: ["Halina Bobrykava", "David Swanson", "Bricen Bennett", "Alec Patterson"],
       QA:  ["Jason LeZotte", "Jared Rosenthal"]
     }
   },
