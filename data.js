@@ -23,7 +23,7 @@ window.PODS = [
       PM:  ["Katie Wiggins"],
       PJM: ["Madison Trumble"],
       Dev: ["Colin Knecht", "Eman Zindani", "Connor Yates", "Dustin White", "JC Collins"],
-      QA:  ["Sarah Carlough", "Katherine Theos"]
+      QA:  ["Avery May", "Katherine Theos"]
     }
   },
   {
@@ -75,7 +75,7 @@ window.PODS = [
       PM:  ["Brittany Heyward"],
       PJM: ["Ayrielle Jackson"],
       Dev: ["Kevin Nichols", "Michael Wood", "Tony Young", "Michael Byers"],
-      QA:  ["Michael Rast", "Avery May"]
+      QA:  ["Michael Rast", "Sarah Carlough"]
     }
   },
   {
