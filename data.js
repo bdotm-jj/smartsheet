@@ -5,10 +5,10 @@ window.PODS = [
     name: "Architecture",
     lob: "Tech Initiatives",
     code: "ARC",
-    pjm: "jameka",
+    pjm: "ayrielle",
     roster: {
       PM:  ["Jason Daniels"],
-      PJM: ["Jameka Blanchard"],
+      PJM: ["Ayrielle Jackson"],
       Dev: ["Erin Terre", "Aleisha DeYoung", "Candace Moreau", "Allen McAfee"],
       QA:  []
     }
