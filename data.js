@@ -20,7 +20,7 @@ window.PODS = [
     code: "CL",
     pjm: "madison",
     roster: {
-      PM:  ["Katie Wiggins"],
+      PM:  ["Ashton Anthony", "Katie Wiggins"],
       PJM: ["Madison Trumble"],
       Dev: ["Colin Knecht", "Eman Zindani", "Connor Yates", "Dustin White", "JC Collins"],
       QA:  ["Avery May", "Katherine Theos"]
@@ -72,7 +72,7 @@ window.PODS = [
     code: "NC",
     pjm: "ayrielle",
     roster: {
-      PM:  ["Brittany Heyward"],
+      PM:  [],
       PJM: ["Ayrielle Jackson"],
       Dev: ["Kevin Nichols", "Michael Wood", "Tony Young", "Michael Byers"],
       QA:  ["Michael Rast", "Sarah Carlough"]
@@ -85,7 +85,7 @@ window.PODS = [
     code: "PL",
     pjm: "halston",
     roster: {
-      PM:  ["Christin Albrecht"],
+      PM:  ["Brittany Heyward", "Christin Albrecht"],
       PJM: ["Halston Moore-Leach"],
       Dev: ["Rimon Berhe", "Amanda Esposito", "Seth Burleson", "Sarah Criswell", "Scott Gallimore"],
       QA:  ["Jimmy Harper", "Noah LoCascio"]
@@ -98,7 +98,7 @@ window.PODS = [
     code: "PR",
     pjm: "ayrielle",
     roster: {
-      PM:  ["Catherine Sanders"],
+      PM:  ["Catherine Sanders", "Ashton Anthony"],
       PJM: ["Ayrielle Jackson"],
       Dev: ["Eric Stembert", "David Peterson", "Nick Haile"],
       QA:  ["Nherissa Dagal"]
@@ -111,7 +111,7 @@ window.PODS = [
     code: "ST",
     pjm: "unassigned",
     roster: {
-      PM:  ["Allison Anthony", "Eric Watson"],
+      PM:  ["Alex Scavo"],
       PJM: [],
       Dev: ["Mike Thompson", "Michael Tessari", "John Cauthen", "Frank Hrach", "Holland Cooper"],
       QA:  ["Jenny Welk", "Lee Ann Mader"]
