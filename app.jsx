@@ -48,7 +48,7 @@ function App() {
       <header className="cover">
         <div className="cover-meta">
           <div className="l">J&amp;J <strong>DIT</strong> — Internal Directory</div>
-          <div className="c">VOL. <strong>I</strong> · ISSUE <strong>04 / 2026</strong></div>
+          <div className="c">VOL. <strong>I</strong> · ISSUE <strong>05 / 2026</strong></div>
           <div className="r">A Roster of Working Groups</div>
         </div>
 
@@ -179,8 +179,8 @@ function App() {
 
       <div className="signoff">
         <div>J&amp;J Insurance · DIT</div>
-        <div className="pharrell">Quietly assembled, April 2026</div>
-        <div>Edition I · 04 · 26</div>
+        <div className="pharrell">Quietly assembled, May 2026</div>
+        <div>Edition I · 05 · 26</div>
       </div>
 
       {/* Tweaks removed — design locked to Dossier */}
