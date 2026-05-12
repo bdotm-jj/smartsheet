@@ -114,7 +114,7 @@ window.PODS = [
       PM:  ["Alex Scavo"],
       PJM: [],
       Dev: ["Mike Thompson", "Michael Tessari", "John Cauthen", "Frank Hrach", "Holland Cooper"],
-      QA:  ["Jenny Welk", "Lee Ann Mader"]
+      QA:  ["Jenny Welk", "Lee Ann Madar"]
     }
   }
 ];
