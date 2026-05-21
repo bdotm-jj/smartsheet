@@ -31,10 +31,10 @@ window.PODS = [
     name: "Data Reporting",
     lob: "Data & Reporting",
     code: "DR",
-    pjm: "andy",
+    pjm: "michelle",
     roster: {
       PM:  ["Alex Scavo"],
-      PJM: ["Andy Oates"],
+      PJM: ["Michelle DiBattista"],
       Dev: ["Rachel Fein", "Brooke Caro", "Allen McAfee"],
       QA:  []
     }
@@ -83,10 +83,10 @@ window.PODS = [
     name: "PL Pod",
     lob: "Personal Lines",
     code: "PL",
-    pjm: "halston",
+    pjm: "abdoul",
     roster: {
       PM:  ["Brittany Heyward", "Christin Albrecht"],
-      PJM: ["Halston Moore-Leach"],
+      PJM: ["Abdoul Balla", "Jameka Blanchard"],
       Dev: ["Rimon Berhe", "Amanda Esposito", "Seth Burleson", "Sarah Criswell", "Scott Gallimore"],
       QA:  ["Jimmy Harper", "Noah LoCascio"]
     }
@@ -120,6 +120,8 @@ window.PODS = [
 ];
 
 window.PJMS = [
+  { id: "michelle", name: "Michelle DiBattista" },
+  { id: "abdoul",   name: "Abdoul Balla" },
   { id: "jameka",   name: "Jameka Blanchard" },
   { id: "madison",  name: "Madison Trumble" },
   { id: "andy",     name: "Andy Oates" },
