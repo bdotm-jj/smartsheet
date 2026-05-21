@@ -1,4 +1,4 @@
-// Pod roster — sourced from uploads/pods.html (Smartsheet, Apr 2026)
+// Pod roster — sourced from Smartsheet · Pods sheet (May 2026)
 window.PODS = [
   {
     id: "architecture",
@@ -34,7 +34,7 @@ window.PODS = [
     pjm: "michelle",
     roster: {
       PM:  ["Alex Scavo"],
-      PJM: ["Michelle DiBattista"],
+      PJM: ["Michelle DiBattista", "Andy Oates"],
       Dev: ["Rachel Fein", "Brooke Caro", "Allen McAfee"],
       QA:  []
     }
