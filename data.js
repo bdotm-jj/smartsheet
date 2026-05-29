@@ -46,7 +46,7 @@ window.PODS = [
     code: "FL",
     pjm: "jameka",
     roster: {
-      PM:  ["Alex Scavo", "Catherine Sanders"],
+      PM:  ["Catherine Sanders", "Ashton Anthony"],
       PJM: ["Jameka Blanchard"],
       Dev: ["Adam Koehler", "Alex Secor"],
       QA:  ["Brittany Grizzard"]
@@ -75,7 +75,7 @@ window.PODS = [
       PM:  ["Will Rotate"],
       PJM: ["Ayrielle Jackson"],
       Dev: ["Connor Yates", "Tony Young", "Michael Byers"],
-      QA:  ["Brittany Heyward"]
+      QA:  ["Britt Heyward", "Sarah Carlough"]
     }
   },
   {
@@ -88,7 +88,7 @@ window.PODS = [
       PM:  ["Christin Albrecht", "Michael Rast"],
       PJM: ["Abdoul Balla", "Jameka Blanchard"],
       Dev: ["Rimon Berhe", "Amanda Esposito", "Seth Burleson", "Sarah Criswell", "Scott Gallimore", "Kevin Nichols", "Candace Moreau"],
-      QA:  ["Jimmy Harper", "Noah LoCascio", "Brittany Heyward"]
+      QA:  ["Jimmy Harper", "Noah LoCascio", "Britt Heyward"]
     }
   },
   {
@@ -112,7 +112,7 @@ window.PODS = [
     pjm: "unassigned",
     roster: {
       PM:  ["Alex Scavo"],
-      PJM: [],
+      PJM: ["Michelle DiBattista"],
       Dev: ["Mike Thompson", "Michael Tessari", "Quinn James", "John Cauthen", "Frank Hrach", "Holland Cooper", "Anastasia Holt", "Philippe Baraka"],
       QA:  ["Jenny Welk", "Lee Ann Madar", "Sarah Carlough"],
       Other: ["Lavona Williams"]
