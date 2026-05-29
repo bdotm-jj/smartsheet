@@ -9,7 +9,7 @@ window.PODS = [
     roster: {
       PM:  ["Jason Daniels"],
       PJM: ["Ayrielle Jackson"],
-      Dev: ["Erin Terre", "Aleisha DeYoung", "Candace Moreau", "Allen McAfee"],
+      Dev: ["Erin Terre", "Aleisha DeYoung"],
       QA:  []
     }
   },
@@ -22,7 +22,7 @@ window.PODS = [
     roster: {
       PM:  ["Ashton Anthony", "Katie Wiggins"],
       PJM: ["Madison Trumble"],
-      Dev: ["Colin Knecht", "Eman Zindani", "Connor Yates", "Dustin White", "JC Collins"],
+      Dev: ["Colin Knecht", "Eman Zindani", "Eddie Benedetti", "Dustin White", "JC Collins"],
       QA:  ["Avery May", "Katherine Theos"]
     }
   },
@@ -48,7 +48,7 @@ window.PODS = [
     roster: {
       PM:  ["Alex Scavo", "Catherine Sanders"],
       PJM: ["Jameka Blanchard"],
-      Dev: ["Adam Koehler", "Eddie Benedetti", "Alex Secor"],
+      Dev: ["Adam Koehler", "Alex Secor"],
       QA:  ["Brittany Grizzard"]
     }
   },
@@ -72,10 +72,10 @@ window.PODS = [
     code: "NC",
     pjm: "ayrielle",
     roster: {
-      PM:  [],
+      PM:  ["Will Rotate"],
       PJM: ["Ayrielle Jackson"],
-      Dev: ["Kevin Nichols", "Michael Wood", "Tony Young", "Michael Byers"],
-      QA:  ["Sarah Carlough", "Brittany Heyward"]
+      Dev: ["Connor Yates", "Tony Young", "Michael Byers"],
+      QA:  ["Brittany Heyward"]
     }
   },
   {
@@ -87,7 +87,7 @@ window.PODS = [
     roster: {
       PM:  ["Christin Albrecht", "Michael Rast"],
       PJM: ["Abdoul Balla", "Jameka Blanchard"],
-      Dev: ["Rimon Berhe", "Amanda Esposito", "Seth Burleson", "Sarah Criswell", "Scott Gallimore"],
+      Dev: ["Rimon Berhe", "Amanda Esposito", "Seth Burleson", "Sarah Criswell", "Scott Gallimore", "Kevin Nichols", "Candace Moreau"],
       QA:  ["Jimmy Harper", "Noah LoCascio", "Brittany Heyward"]
     }
   },
@@ -113,8 +113,9 @@ window.PODS = [
     roster: {
       PM:  ["Alex Scavo"],
       PJM: [],
-      Dev: ["Mike Thompson", "Michael Tessari", "John Cauthen", "Frank Hrach", "Holland Cooper", "Philippe Baraka"],
-      QA:  ["Jenny Welk", "Lee Ann Madar", "Sarah Carlough"]
+      Dev: ["Mike Thompson", "Michael Tessari", "Quinn James", "John Cauthen", "Frank Hrach", "Holland Cooper", "Anastasia Holt", "Philippe Baraka"],
+      QA:  ["Jenny Welk", "Lee Ann Madar", "Sarah Carlough"],
+      Other: ["Lavona Williams"]
     }
   }
 ];

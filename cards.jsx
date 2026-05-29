@@ -12,7 +12,7 @@ function podHasPerson(pod, personName) {
 }
 
 function totalCount(pod) {
-  return Object.values(pod.roster).reduce((a, l) => a + l.length, 0);
+  return Object.values(pod.roster).reduce((a, l) => a + (Array.isArray(l) ? l.length : 0), 0);
 }
 
 function Person({ name, query, activePerson, onClick }) {
@@ -48,10 +48,11 @@ function Person({ name, query, activePerson, onClick }) {
 // ── DOSSIER CARD ──────────────────────────────────────────────
 function DossierCard({ pod, query, activePerson, onPersonClick }) {
   const rows = [
-    { key: "PM",  list: pod.roster.PM  },
-    { key: "PJM", list: pod.roster.PJM },
-    { key: "Dev", list: pod.roster.Dev },
-    { key: "QA",  list: pod.roster.QA  }
+    { key: "PM",    list: pod.roster.PM    },
+    { key: "PJM",   list: pod.roster.PJM   },
+    { key: "Dev",   list: pod.roster.Dev   },
+    { key: "QA",    list: pod.roster.QA    },
+    ...(pod.roster.Other?.length ? [{ key: "Other", list: pod.roster.Other }] : [])
   ];
   return (
     <div className="pod">
