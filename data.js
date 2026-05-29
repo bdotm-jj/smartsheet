@@ -100,7 +100,7 @@ window.PODS = [
     roster: {
       PM:  ["Catherine Sanders", "Ashton Anthony"],
       PJM: ["Ayrielle Jackson"],
-      Dev: ["Eric Stembert", "David Peterson", "Nick Haile"],
+      Dev: ["Eric Stembert", "Nick Haile"],
       QA:  ["Nherissa Dagal"]
     }
   },
