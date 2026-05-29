@@ -75,7 +75,7 @@ window.PODS = [
       PM:  [],
       PJM: ["Ayrielle Jackson"],
       Dev: ["Kevin Nichols", "Michael Wood", "Tony Young", "Michael Byers"],
-      QA:  ["Michael Rast", "Sarah Carlough"]
+      QA:  ["Sarah Carlough", "Brittany Heyward"]
     }
   },
   {
@@ -85,10 +85,10 @@ window.PODS = [
     code: "PL",
     pjm: "abdoul",
     roster: {
-      PM:  ["Brittany Heyward", "Christin Albrecht"],
+      PM:  ["Christin Albrecht", "Michael Rast"],
       PJM: ["Abdoul Balla", "Jameka Blanchard"],
       Dev: ["Rimon Berhe", "Amanda Esposito", "Seth Burleson", "Sarah Criswell", "Scott Gallimore"],
-      QA:  ["Jimmy Harper", "Noah LoCascio"]
+      QA:  ["Jimmy Harper", "Noah LoCascio", "Brittany Heyward"]
     }
   },
   {
@@ -114,7 +114,7 @@ window.PODS = [
       PM:  ["Alex Scavo"],
       PJM: [],
       Dev: ["Mike Thompson", "Michael Tessari", "John Cauthen", "Frank Hrach", "Holland Cooper", "Philippe Baraka"],
-      QA:  ["Jenny Welk", "Lee Ann Madar"]
+      QA:  ["Jenny Welk", "Lee Ann Madar", "Sarah Carlough"]
     }
   }
 ];
