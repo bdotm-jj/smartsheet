@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UAT Testing Reports — J&amp;J Insurance</title>
+<link rel="icon" href="assets/jj-oval.png">
+<link rel="stylesheet" href="assets/jj-tokens.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font: var(--jj-text-body);
+    color: var(--jj-fg-default);
+    background: var(--pt-page-bg);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+  .ic { fill: currentColor; display: inline-block; vertical-align: -.15em; flex: none; }
+  .pt-switching, .pt-switching * { transition: none !important; }
+
+  /* ═══════════════  LOOK / THEME TOKENS  (Corporate = defaults)  ═══════════════ */
+  :root {
+    --pt-num-font: var(--jj-font-display);
+    --pt-page-bg: var(--jj-neutral-050);
+    --pt-line: var(--jj-primary-200);
+    --pt-eyebrow: var(--jj-fg-link);
+
+    --pt-hero-bg: var(--jj-darker-blue);
+    --pt-hero-bar: transparent;
+    --pt-hero-border: transparent;
+    --pt-hero-fg: #fff;
+    --pt-hero-sub: var(--jj-light-blue);
+    --pt-hero-summary: rgba(255,255,255,.82);
+    --pt-hero-glow: rgba(0,105,189,.18);
+    --pt-hero-shadow: var(--jj-elevation-3);
+    --pt-hero-radius: var(--jj-radius-15);
+    --pt-hero-acc-bg: var(--jj-action-700);
+    --pt-hero-acc-bg-h: var(--jj-action-900);
+    --pt-hero-acc-fg: #fff;
+    --pt-hero-statbg: rgba(255,255,255,.05);
+    --pt-hero-statline: rgba(255,255,255,.14);
+
+    --pt-card-border: var(--jj-border-default);
+    --pt-card-radius: var(--jj-radius-10);
+    --pt-card-shadow: var(--jj-elevation-1);
+    --pt-card-shadow-h: var(--jj-elevation-3);
+    --pt-card-hover-border: var(--jj-primary-200);
+    --pt-card-pad: 24px;
+    --pt-grid-gap: 20px;
+
+    --pt-link: var(--jj-fg-link);
+    --pt-row-hover: var(--jj-light-blue);
+    --pt-chip-bg: var(--jj-primary-100);
+    --pt-chip-val: var(--jj-dark-blue);
+    --pt-chip-label: var(--jj-fg-subtle);
+    --pt-tag-monthly-bg: var(--jj-primary-100);
+    --pt-tag-monthly-fg: var(--jj-dark-blue);
+    --pt-tag-baseline-bg: var(--jj-light-green);
+    --pt-tag-baseline-fg: var(--jj-dark-green);
+    --pt-node: var(--jj-blue);
+    --pt-node-baseline: var(--jj-green);
+    --pt-btn-radius: var(--jj-radius-25);
+  }
+
+  /* ── EDITORIAL · light, airy, hairline borders, green spine ── */
+  [data-look="editorial"] {
+    --pt-page-bg: #fff;
+    --pt-eyebrow: var(--jj-green);
+    --pt-hero-bg: #fff;
+    --pt-hero-bar: var(--jj-green);
+    --pt-hero-border: var(--jj-neutral-200);
+    --pt-hero-fg: var(--jj-darker-blue);
+    --pt-hero-sub: var(--jj-primary-600);
+    --pt-hero-summary: var(--jj-neutral-800);
+    --pt-hero-glow: var(--jj-primary-050);
+    --pt-hero-shadow: var(--jj-elevation-1);
+    --pt-hero-radius: var(--jj-radius-5);
+    --pt-hero-statbg: var(--jj-primary-050);
+    --pt-hero-statline: var(--jj-neutral-200);
+    --pt-card-border: var(--jj-neutral-200);
+    --pt-card-radius: var(--jj-radius-5);
+    --pt-card-shadow: none;
+    --pt-card-shadow-h: var(--jj-elevation-2);
+    --pt-card-hover-border: var(--jj-primary-300);
+    --pt-row-hover: var(--jj-primary-050);
+    --pt-btn-radius: var(--jj-radius-5);
+    --pt-line: var(--jj-neutral-200);
+  }
+
+  /* ── FOREST · green-forward, bold, friendly radii ── */
+  [data-look="forest"] {
+    --pt-eyebrow: var(--jj-green);
+    --pt-hero-bg: #0F402A;
+    --pt-hero-glow: rgba(217,255,237,.12);
+    --pt-hero-sub: var(--jj-light-green);
+    --pt-hero-summary: rgba(255,255,255,.85);
+    --pt-hero-acc-bg: #fff;
+    --pt-hero-acc-bg-h: var(--jj-light-green);
+    --pt-hero-acc-fg: var(--jj-dark-green);
+    --pt-hero-statbg: rgba(255,255,255,.06);
+    --pt-hero-statline: rgba(255,255,255,.18);
+    --pt-hero-radius: var(--jj-radius-20);
+    --pt-card-radius: var(--jj-radius-15);
+    --pt-card-hover-border: var(--jj-action-300);
+    --pt-link: var(--jj-green-active);
+    --pt-row-hover: var(--jj-light-green);
+    --pt-chip-bg: var(--jj-light-green);
+    --pt-chip-val: var(--jj-dark-green);
+    --pt-chip-label: var(--jj-green-active);
+    --pt-tag-monthly-bg: var(--jj-light-green);
+    --pt-tag-monthly-fg: var(--jj-dark-green);
+    --pt-tag-baseline-bg: var(--jj-primary-100);
+    --pt-tag-baseline-fg: var(--jj-dark-blue);
+    --pt-node: var(--jj-green);
+    --pt-node-baseline: var(--jj-blue);
+  }
+
+  /* ── CONSOLE · data-dashboard, mono figures, blue wash, sharp ── */
+  [data-look="console"] {
+    --pt-num-font: var(--jj-font-mono);
+    --pt-page-bg: var(--jj-primary-050);
+    --pt-hero-bg: var(--jj-dark-blue);
+    --pt-hero-glow: rgba(255,255,255,.06);
+    --pt-hero-shadow: var(--jj-elevation-4);
+    --pt-hero-radius: var(--jj-radius-5);
+    --pt-hero-statbg: rgba(255,255,255,.08);
+    --pt-hero-statline: rgba(255,255,255,.2);
+    --pt-card-border: var(--jj-primary-200);
+    --pt-card-radius: var(--jj-radius-5);
+    --pt-card-shadow: var(--jj-elevation-2);
+    --pt-card-shadow-h: var(--jj-elevation-4);
+    --pt-chip-bg: var(--jj-primary-050);
+    --pt-chip-val: var(--jj-blue);
+    --pt-link: var(--jj-blue);
+    --pt-btn-radius: var(--jj-radius-5);
+  }
+
+  /* ── DENSITY ── */
+  [data-density="compact"] { --pt-card-pad: 16px; --pt-grid-gap: 12px; }
+
+  /* ─────────────────────────  TOP BAR  ───────────────────────── */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    height: 64px; background: var(--jj-primary-800); color: #fff;
+    display: flex; align-items: center; gap: 16px;
+    padding: 0 clamp(16px, 4vw, 40px);
+    box-shadow: 0 2px 4px rgba(0,30,54,.18);
+  }
+  .topbar__logo { height: 30px; display: block; filter: brightness(0) invert(1); }
+  .topbar__sep { width: 1px; height: 28px; background: rgba(255,255,255,.22); }
+  .topbar__titles { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
+  .topbar__eyebrow { font: 600 11px/1.3 var(--jj-font-body); letter-spacing: .12em; text-transform: uppercase; color: var(--jj-light-blue); }
+  .topbar__title { font: 700 15px/1.2 var(--jj-font-display); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .topbar__right { margin-left: auto; display: flex; align-items: center; gap: 14px; }
+  .topbar__owner { display: flex; align-items: center; gap: 10px; padding-left: 14px; border-left: 1px solid rgba(255,255,255,.18); }
+  .topbar__avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--jj-action-700); display: grid; place-items: center; font: 700 12px/1 var(--jj-font-body); color: #fff; }
+  .topbar__owner-text { font: 600 13px/16px var(--jj-font-body); }
+  .topbar__owner-text span { display: block; font: var(--jj-text-body-sm); opacity: .72; }
+
+  /* ─────────────────────────  PAGE SHELL  ───────────────────────── */
+  .page { max-width: 1180px; margin: 0 auto; padding: clamp(24px, 4vw, 44px) clamp(16px, 4vw, 40px) 64px; }
+  .eyebrow { font: var(--jj-text-eyebrow); letter-spacing: .12em; text-transform: uppercase; color: var(--pt-eyebrow); }
+  .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin: 48px 0 20px; }
+  .section-head h2 { font: var(--jj-text-title-2); color: var(--jj-fg-default); }
+  .section-head p { font: var(--jj-text-body); color: var(--jj-fg-subtle); margin-top: 4px; }
+
+  /* ─────────────────────────  HERO (latest)  ───────────────────────── */
+  .hero {
+    background: var(--pt-hero-bg);
+    color: var(--pt-hero-fg); border-radius: var(--pt-hero-radius);
+    padding: clamp(28px, 4vw, 44px);
+    position: relative; overflow: hidden;
+    box-shadow: var(--pt-hero-shadow);
+    border: 1px solid var(--pt-hero-border);
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 4vw, 56px); align-items: center;
+  }
+  .hero::after {
+    content: ""; position: absolute; right: -90px; top: -90px; width: 320px; height: 320px;
+    border-radius: 50%; background: var(--pt-hero-glow); pointer-events: none;
+  }
+  .hero::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+    background: var(--pt-hero-bar); pointer-events: none;
+  }
+  .hero__main { position: relative; z-index: 1; min-width: 0; }
+  .hero__tag {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--pt-hero-acc-bg); color: var(--pt-hero-acc-fg);
+    font: 700 11px/1 var(--jj-font-body); letter-spacing: .1em; text-transform: uppercase;
+    padding: 7px 13px; border-radius: var(--jj-radius-pill); margin-bottom: 18px;
+  }
+  .hero__title { font: 700 clamp(28px, 4vw, 40px)/1.08 var(--jj-font-display); letter-spacing: -.01em; }
+  .hero__period { font: var(--jj-text-body-lg); color: var(--pt-hero-sub); margin-top: 12px; }
+  .hero__summary { font: var(--jj-text-body-lg); color: var(--pt-hero-summary); margin-top: 18px; max-width: 46ch; text-wrap: pretty; }
+  .hero__cta {
+    display: inline-flex; align-items: center; gap: 9px; margin-top: 28px;
+    background: var(--pt-hero-acc-bg); color: var(--pt-hero-acc-fg); border: 0; cursor: pointer;
+    font: var(--jj-text-button); padding: 0 26px; height: 44px; border-radius: var(--pt-btn-radius);
+    transition: background .15s cubic-bezier(.2,0,0,1);
+  }
+  .hero__cta:hover { background: var(--pt-hero-acc-bg-h); }
+
+  .hero__stats { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--pt-hero-statline); border-radius: var(--pt-card-radius); overflow: hidden; }
+  .hero__stat { background: var(--pt-hero-statbg); padding: 20px 22px; }
+  .hero__stat .v { font: 700 30px/1 var(--pt-num-font); color: var(--pt-hero-fg); }
+  .hero__stat .v small { font-size: .6em; font-weight: 600; color: var(--pt-hero-sub); margin-left: 2px; }
+  .hero__stat .l { font: 600 11px/1.3 var(--jj-font-body); letter-spacing: .07em; text-transform: uppercase; color: var(--pt-hero-sub); margin-top: 8px; }
+
+  /* ─────────────────────────  VIEW TOGGLE  ───────────────────────── */
+  .seg { display: inline-flex; background: #fff; border: 1px solid var(--pt-card-border); border-radius: var(--jj-radius-pill); padding: 3px; gap: 2px; }
+  .seg button {
+    display: inline-flex; align-items: center; gap: 6px; border: 0; background: transparent; cursor: pointer;
+    font: 600 13px/1 var(--jj-font-body); color: var(--jj-fg-muted);
+    padding: 8px 15px; border-radius: var(--jj-radius-pill); transition: all .15s cubic-bezier(.2,0,0,1);
+  }
+  .seg button:hover { color: var(--jj-fg-default); }
+  .seg button[aria-pressed="true"] { background: var(--jj-primary-800); color: #fff; }
+  .seg .seg__label { }
+
+  /* ─────────────────────────  STAT CHIPS (shared)  ───────────────────────── */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { display: inline-flex; align-items: baseline; gap: 6px; background: var(--pt-chip-bg); border-radius: var(--jj-radius-pill); padding: 6px 13px; }
+  .chip .cv { font: 700 14px/1 var(--pt-num-font); color: var(--pt-chip-val); }
+  .chip .cl { font: var(--jj-text-body-sm); color: var(--pt-chip-label); }
+
+  .tag { display: inline-flex; align-items: center; gap: 6px; font: 700 10px/1 var(--jj-font-body); letter-spacing: .09em; text-transform: uppercase; padding: 6px 11px; border-radius: var(--jj-radius-pill); }
+  .tag--monthly { background: var(--pt-tag-monthly-bg); color: var(--pt-tag-monthly-fg); }
+  .tag--baseline { background: var(--pt-tag-baseline-bg); color: var(--pt-tag-baseline-fg); }
+
+  /* ─────────────────────────  CARDS LAYOUT  ───────────────────────── */
+  .grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--pt-grid-gap); }
+  .rcard {
+    background: #fff; border: 1px solid var(--pt-card-border); border-radius: var(--pt-card-radius);
+    padding: var(--pt-card-pad); cursor: pointer; display: flex; flex-direction: column; gap: 14px;
+    box-shadow: var(--pt-card-shadow); transition: box-shadow .15s, transform .15s, border-color .15s;
+  }
+  .rcard:hover { box-shadow: var(--pt-card-shadow-h); transform: translateY(-2px); border-color: var(--pt-card-hover-border); }
+  .rcard__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .rcard__date { font: var(--jj-text-body-sm); color: var(--jj-fg-subtle); }
+  .rcard__title { font: var(--jj-text-title-3); color: var(--jj-fg-default); }
+  .rcard__summary { font: var(--jj-text-body); color: var(--jj-fg-muted); flex: 1; text-wrap: pretty; }
+  .rcard__foot { display: flex; align-items: center; gap: 7px; font: var(--jj-text-button); color: var(--pt-link); margin-top: 2px; }
+  .rcard:hover .rcard__foot { gap: 11px; }
+
+  /* ─────────────────────────  LIST LAYOUT  ───────────────────────── */
+  .list { background: #fff; border: 1px solid var(--pt-card-border); border-radius: var(--pt-card-radius); overflow: hidden; box-shadow: var(--pt-card-shadow); }
+  .lrow { display: grid; grid-template-columns: 200px 1fr auto; gap: 24px; align-items: center; padding: 20px 24px; cursor: pointer; border-top: 1px solid var(--jj-neutral-100); transition: background .12s; }
+  .lrow:first-child { border-top: 0; }
+  .lrow:hover { background: var(--pt-row-hover); }
+  .lrow__lead { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .lrow__title { font: var(--jj-text-title-4); color: var(--jj-fg-default); }
+  .lrow__date { font: var(--jj-text-body-sm); color: var(--jj-fg-subtle); }
+  .lrow__summary { font: var(--jj-text-body); color: var(--jj-fg-muted); text-wrap: pretty; }
+  .lrow__right { display: flex; align-items: center; gap: 18px; }
+  .lrow__chev { color: var(--pt-link); display: inline-flex; }
+
+  /* ─────────────────────────  TIMELINE LAYOUT  ───────────────────────── */
+  .timeline { position: relative; padding-left: 38px; }
+  .timeline::before { content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: var(--pt-line); }
+  .tnode { position: relative; padding-bottom: 28px; }
+  .tnode:last-child { padding-bottom: 0; }
+  .tnode::before {
+    content: ""; position: absolute; left: -32px; top: 22px; width: 14px; height: 14px; border-radius: 50%;
+    background: #fff; border: 3px solid var(--pt-node); box-shadow: 0 0 0 4px var(--pt-page-bg);
+  }
+  .tnode--baseline::before { border-color: var(--pt-node-baseline); }
+  .tnode__date { font: 700 12px/1 var(--jj-font-display); letter-spacing: .04em; text-transform: uppercase; color: var(--jj-fg-subtle); margin-bottom: 10px; }
+  .tcard {
+    background: #fff; border: 1px solid var(--pt-card-border); border-radius: var(--pt-card-radius);
+    padding: 22px 24px; cursor: pointer; box-shadow: var(--pt-card-shadow);
+    display: flex; flex-direction: column; gap: 12px; transition: box-shadow .15s, border-color .15s;
+  }
+  .tcard:hover { box-shadow: var(--pt-card-shadow-h); border-color: var(--pt-card-hover-border); }
+  .tcard__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .tcard__title { font: var(--jj-text-title-3); color: var(--jj-fg-default); }
+  .tcard__summary { font: var(--jj-text-body); color: var(--jj-fg-muted); text-wrap: pretty; }
+
+  /* ─────────────────────────  FOOTER  ───────────────────────── */
+  .foot { border-top: 1px solid var(--jj-neutral-200); margin-top: 56px; padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .foot p { font: var(--jj-text-body-sm); color: var(--jj-fg-subtle); }
+
+  /* ─────────────────────────  VIEWER  ───────────────────────── */
+  .viewer { position: fixed; inset: 0; z-index: 100; background: var(--jj-neutral-050); display: none; flex-direction: column; }
+  .viewer.open { display: flex; }
+  .viewer__bar {
+    height: 56px; background: var(--jj-primary-800); color: #fff; flex: none;
+    display: flex; align-items: center; gap: 14px; padding: 0 clamp(12px, 3vw, 24px);
+  }
+  .viewer__back {
+    display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,.12); color: #fff; border: 0; cursor: pointer;
+    font: var(--jj-text-button); padding: 0 16px; height: 36px; border-radius: var(--jj-radius-pill); transition: background .15s;
+  }
+  .viewer__back:hover { background: rgba(255,255,255,.22); }
+  .viewer__title { font: 700 14px/1.2 var(--jj-font-display); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .viewer__title span { font: var(--jj-text-body-sm); opacity: .7; font-family: var(--jj-font-body); }
+  .viewer__ext { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; color: #fff; font: 600 13px/1 var(--jj-font-body); opacity: .85; }
+  .viewer__ext:hover { opacity: 1; }
+  .viewer__frame { flex: 1; border: 0; width: 100%; background: #fff; }
+
+  /* ─────────────────────────  RESPONSIVE  ───────────────────────── */
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 28px; }
+    .topbar__owner { display: none; }
+  }
+  @media (max-width: 600px) {
+    .topbar__title { font-size: 13px; }
+    .topbar__eyebrow { font-size: 10px; }
+    .lrow { grid-template-columns: 1fr; gap: 12px; padding: 18px 18px; }
+    .lrow__right { justify-content: space-between; }
+    .seg__label { display: none; }
+    .seg button { padding: 9px 12px; }
+    .hero__stats { grid-template-columns: 1fr 1fr; }
+    .section-head { margin-top: 36px; }
+  }
+
+  /* ─────────────────────────  TWEAKS PANEL  ───────────────────────── */
+  .tweaks { position: fixed; right: 20px; bottom: 20px; z-index: 200; width: 286px;
+    background: #fff; border: 1px solid var(--jj-neutral-200); border-radius: var(--jj-radius-10);
+    box-shadow: var(--jj-elevation-4); overflow: hidden; font-family: var(--jj-font-body); }
+  .tweaks[hidden] { display: none; }
+  .tweaks__head { display: flex; align-items: center; justify-content: space-between;
+    background: var(--jj-primary-800); color: #fff; padding: 12px 16px;
+    font: 700 13px/1 var(--jj-font-display); letter-spacing: .02em; }
+  .tweaks__head button { background: transparent; border: 0; color: #fff; cursor: pointer; font-size: 20px; line-height: 1; opacity: .8; padding: 0; }
+  .tweaks__head button:hover { opacity: 1; }
+  .tweaks__sec { padding: 14px 16px; border-top: 1px solid var(--jj-neutral-100); }
+  .tweaks__label { font: 700 10px/1 var(--jj-font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--jj-fg-subtle); margin-bottom: 10px; }
+  .tw-looks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .tw-look { display: flex; flex-direction: column; gap: 7px; padding: 8px; border: 1.5px solid var(--jj-neutral-200);
+    border-radius: var(--jj-radius-5); background: #fff; cursor: pointer; text-align: left; transition: border-color .12s, box-shadow .12s; }
+  .tw-look:hover { border-color: var(--jj-primary-300); }
+  .tw-look[aria-pressed="true"] { border-color: var(--jj-primary-800); box-shadow: inset 0 0 0 1px var(--jj-primary-800); }
+  .tw-look__sw { height: 28px; border-radius: 4px; border: 1px solid rgba(0,0,0,.08); display: flex; overflow: hidden; }
+  .tw-look__sw i { flex: 1; }
+  .tw-look__name { font: 600 11px/1.2 var(--jj-font-body); color: var(--jj-fg-default); }
+  .seg--tw { display: flex; width: 100%; }
+  .seg--tw button { flex: 1; justify-content: center; }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════
+     TO ADD A NEW MONTH'S REPORT:
+       1. Drop the report's .html file into the  reports/  folder.
+       2. Add one entry to the REPORTS array below (newest anywhere —
+          the portal sorts by `date` automatically). Copy an existing
+          entry and edit the fields. `kind` is "monthly" or "baseline".
+     That's it. See README.md for the annotated template.
+     ════════════════════════════════════════════════════════════════ -->
+
+<header class="topbar">
+  <img class="topbar__logo" src="assets/jj-logo-horizontal.png" alt="Johnson &amp; Johnson Insurance">
+  <div class="topbar__sep"></div>
+  <div class="topbar__titles">
+    <div class="topbar__eyebrow">Quality Operations</div>
+    <div class="topbar__title">UAT Testing Reports</div>
+  </div>
+  <div class="topbar__right">
+    <div class="topbar__owner">
+      <div class="topbar__avatar">CP</div>
+      <div class="topbar__owner-text">Cathy Parmley<span>User Acceptance Testing</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- HOME ─────────────────────────────────────────────────────────── -->
+<main class="page" id="home" data-screen-label="Home — Report Index">
+  <div class="eyebrow" id="hero-eyebrow">Latest Report</div>
+  <section class="hero" id="hero"></section>
+
+  <div class="section-head">
+    <div>
+      <h2>Report Archive</h2>
+      <p id="archive-count"></p>
+    </div>
+    <div class="seg" id="view-toggle" role="group" aria-label="Choose layout">
+      <button data-view="cards" aria-pressed="true"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11h8V3H3v8zm0 10h8v-8H3v8zm10 0h8v-8h-8v8zm0-18v8h8V3h-8z"/></svg><span class="seg__label">Cards</span></button>
+      <button data-view="list" aria-pressed="false"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h2v2H3zM7 5h14v2H7zM3 11h2v2H3zM7 11h14v2H7zM3 17h2v2H3zM7 17h14v2H7z"/></svg><span class="seg__label">List</span></button>
+      <button data-view="timeline" aria-pressed="false"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"/></svg><span class="seg__label">Timeline</span></button>
+    </div>
+  </div>
+
+  <div id="archive"></div>
+
+  <footer class="foot">
+    <p>Johnson &amp; Johnson Insurance · Quality Operations</p>
+    <p id="last-updated"></p>
+  </footer>
+</main>
+
+<!-- VIEWER ───────────────────────────────────────────────────────── -->
+<div class="viewer" id="viewer" data-screen-label="Report Viewer">
+  <div class="viewer__bar">
+    <button class="viewer__back" id="viewer-back"><svg class="ic" width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></svg>All Reports</button>
+    <div class="viewer__title" id="viewer-title"></div>
+    <a class="viewer__ext" id="viewer-ext" target="_blank" rel="noopener"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>Open in new tab</a>
+  </div>
+  <iframe class="viewer__frame" id="viewer-frame" title="Report"></iframe>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════
+   REPORT MANIFEST — the single source of truth.
+   Add / edit entries here. `date` (ISO) drives ordering; newest first.
+   `stats` is an ordered list of headline figures shown on each card.
+   ══════════════════════════════════════════════════════════════════ */
+const REPORTS = [
+  {
+    id: "june-2026",
+    kind: "monthly",
+    title: "June 2026",
+    date: "2026-06-01",
+    period: "Current period · Apr 1 – Jun 1, 2026",
+    file: "reports/june-2026.html",
+    summary: "Testing efficiency improved sharply — average project duration fell 40% versus the Nov–Mar baseline. Scottsdale API remains an outlier at 10 days in R1.",
+    stats: [
+      { value: "6", label: "Projects Tested" },
+      { value: "9", label: "Total Tasks" },
+      { value: "4.8", unit: "d", label: "Avg / Project" },
+      { value: "−40%", label: "vs Baseline" }
+    ]
+  },
+  {
+    id: "may-2026",
+    kind: "monthly",
+    title: "May 2026",
+    date: "2026-05-08",
+    period: "Reporting period · Nov 25, 2025 – May 6, 2026",
+    file: "reports/may-2026.html",
+    summary: "Thirteen projects cleared the queue across a six-month window. Average total duration ticked up to 7.5 days as larger integrations entered testing.",
+    stats: [
+      { value: "13", label: "Projects Tested" },
+      { value: "30", label: "Completed Tasks" },
+      { value: "7.5", unit: "d", label: "Avg / Project" },
+      { value: "4", label: "Queued" }
+    ]
+  },
+  {
+    id: "april-2026",
+    kind: "monthly",
+    title: "April 2026",
+    date: "2026-04-30",
+    period: "Reporting period · Apr 8 – 27, 2026",
+    file: "reports/april-2026.html",
+    summary: "The lightest month since the baseline began — three projects, closed in roughly half the usual time. One API integration ran long; the rest finished in two days or less.",
+    stats: [
+      { value: "3", label: "Projects Tested" },
+      { value: "4", label: "Completed Tasks" },
+      { value: "4.7", unit: "d", label: "Avg / Project" }
+    ]
+  },
+  {
+    id: "phase-duration-baseline",
+    kind: "baseline",
+    title: "Phase Duration Baseline",
+    date: "2026-03-31",
+    period: "Q1 2026 reference · Jan – Mar 2026",
+    file: "reports/phase-duration-baseline.html",
+    summary: "The Q1 2026 reference benchmark. Establishes phase-duration norms across 17 projects and five lines of business, sourced from Smartsheet project plans.",
+    stats: [
+      { value: "17", label: "Projects" },
+      { value: "5", label: "Lines of Business" },
+      { value: "5.4", unit: "d", label: "Baseline Avg" }
+    ]
+  }
+];
+
+/* ──────────────────────────────────────────────────────────────── */
+const $ = (s, r = document) => r.querySelector(s);
+
+/* ── Tweakable defaults (host rewrites this block on change) ── */
+const TWEAKS = /*EDITMODE-BEGIN*/{
+  "look": "console",
+  "density": "comfortable"
+}/*EDITMODE-END*/;
+const LOOKS = [
+  { id: "corporate", name: "Corporate Navy",  sw: ["#001E36", "#1D7B4F"] },
+  { id: "editorial", name: "Editorial Light", sw: ["#FFFFFF", "#1D7B4F"] },
+  { id: "forest",    name: "Forest Green",    sw: ["#0F402A", "#FFFFFF"] },
+  { id: "console",   name: "Data Console",    sw: ["#005395", "#1D7B4F"] }
+];
+function applyTweaks(t) {
+  const el = document.documentElement;
+  el.classList.add("pt-switching");
+  el.setAttribute("data-look", t.look);
+  el.setAttribute("data-density", t.density);
+  void el.offsetHeight;
+  requestAnimationFrame(() => el.classList.remove("pt-switching"));
+}
+applyTweaks(TWEAKS);
+const ICONS = {"bolt":"M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.07-.12C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z","arrow_forward":"M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z","arrow_back":"M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z","chevron_right":"M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z","grid_view":"M3 11h8V3H3v8zm0 10h8v-8H3v8zm10 0h8v-8h-8v8zm0-18v8h8V3h-8z","view_list":"M3 5h2v2H3zM7 5h14v2H7zM3 11h2v2H3zM7 11h14v2H7zM3 17h2v2H3zM7 17h14v2H7z","timeline":"M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z","calendar_month":"M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z","straighten":"M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h2v4h2V8h2v4h2V8h2v4h2V8h2v4h2V8h2v8z","open_in_new":"M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"};
+const ic = (n, s = 18) => '<svg class="ic" width="' + s + '" height="' + s + '" viewBox="0 0 24 24" aria-hidden="true"><path d="' + ICONS[n] + '"/></svg>';
+const sorted = [...REPORTS].sort((a, b) => b.date.localeCompare(a.date));
+const hero = sorted.find(r => r.kind === "monthly") || sorted[0];
+const archive = sorted.filter(r => r !== hero);
+const byId = Object.fromEntries(REPORTS.map(r => [r.id, r]));
+
+const fmtDate = iso => new Date(iso + "T00:00:00").toLocaleDateString("en-US", { month: "long", year: "numeric" });
+const tagFor = kind => kind === "baseline"
+  ? '<span class="tag tag--baseline">' + ic('straighten', 14) + 'Reference</span>'
+  : '<span class="tag tag--monthly">' + ic('calendar_month', 14) + 'Monthly</span>';
+const chips = stats => '<div class="chips">' + stats.map(s =>
+  `<span class="chip"><span class="cv">${s.value}${s.unit ? `<small>${s.unit}</small>` : ""}</span><span class="cl">${s.label}</span></span>`).join("") + '</div>';
+
+/* ── Hero ── */
+function renderHero() {
+  $("#hero-eyebrow").textContent = hero.kind === "baseline" ? "Reference Document" : "Latest Report";
+  $("#hero").innerHTML = `
+    <div class="hero__main">
+      <span class="hero__tag">${ic('bolt',15)}${hero.kind === "baseline" ? "Reference" : "Newest"}</span>
+      <h1 class="hero__title">${hero.title}</h1>
+      <div class="hero__period">${hero.period}</div>
+      <p class="hero__summary">${hero.summary}</p>
+      <button class="hero__cta" data-open="${hero.id}">Open Report${ic('arrow_forward',20)}</button>
+    </div>
+    <div class="hero__stats">
+      ${hero.stats.slice(0, 4).map(s => `<div class="hero__stat"><div class="v">${s.value}${s.unit ? `<small>${s.unit}</small>` : ""}</div><div class="l">${s.label}</div></div>`).join("")}
+    </div>`;
+}
+
+/* ── Archive layouts ── */
+function renderArchive(view) {
+  const el = $("#archive");
+  if (view === "list") {
+    el.innerHTML = '<div class="list">' + archive.map(r => `
+      <div class="lrow" data-open="${r.id}">
+        <div class="lrow__lead">
+          ${tagFor(r.kind)}
+          <div class="lrow__title">${r.title}</div>
+          <div class="lrow__date">${r.period}</div>
+        </div>
+        <div class="lrow__summary">${r.summary}</div>
+        <div class="lrow__right">
+          ${chips(r.stats.slice(0, 3))}
+          <span class="lrow__chev">${ic('chevron_right',24)}</span>
+        </div>
+      </div>`).join("") + '</div>';
+  } else if (view === "timeline") {
+    el.innerHTML = '<div class="timeline">' + archive.map(r => `
+      <div class="tnode tnode--${r.kind}">
+        <div class="tnode__date">${fmtDate(r.date)}</div>
+        <div class="tcard" data-open="${r.id}">
+          <div class="tcard__top"><div class="tcard__title">${r.title}</div>${tagFor(r.kind)}</div>
+          <div class="tcard__summary">${r.summary}</div>
+          ${chips(r.stats)}
+        </div>
+      </div>`).join("") + '</div>';
+  } else {
+    el.innerHTML = '<div class="grid-cards">' + archive.map(r => `
+      <div class="rcard" data-open="${r.id}">
+        <div class="rcard__top">${tagFor(r.kind)}<span class="rcard__date">${fmtDate(r.date)}</span></div>
+        <div class="rcard__title">${r.title}</div>
+        <div class="rcard__summary">${r.summary}</div>
+        ${chips(r.stats)}
+        <div class="rcard__foot">View report${ic('arrow_forward',18)}</div>
+      </div>`).join("") + '</div>';
+  }
+}
+
+/* ── View toggle (persisted) ── */
+function setView(view) {
+  localStorage.setItem("uat-portal-view", view);
+  $("#view-toggle").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.view === view)));
+  renderArchive(view);
+}
+$("#view-toggle").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (b) setView(b.dataset.view);
+});
+
+/* ── Routing: #/view/<id> opens the embedded viewer ── */
+function openReport(id) {
+  const r = byId[id]; if (!r) return goHome();
+  $("#viewer-frame").src = r.file;
+  $("#viewer-title").innerHTML = `${r.title} <span>· ${r.kind === "baseline" ? "Reference" : "UAT Report"}</span>`;
+  $("#viewer-ext").href = r.file;
+  $("#viewer").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function goHome() {
+  $("#viewer").classList.remove("open");
+  $("#viewer-frame").src = "about:blank";
+  document.body.style.overflow = "";
+}
+function route() {
+  const m = location.hash.match(/^#\/view\/(.+)$/);
+  if (m && byId[m[1]]) openReport(m[1]); else goHome();
+}
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-open]");
+  if (t) { location.hash = "#/view/" + t.dataset.open; }
+});
+$("#viewer-back").addEventListener("click", () => { location.hash = ""; });
+window.addEventListener("hashchange", route);
+
+/* ── Init ── */
+renderHero();
+$("#archive-count").textContent = `${archive.length} earlier report${archive.length === 1 ? "" : "s"} and reference document`;
+$("#last-updated").textContent = "Last updated " + new Date(sorted[0].date + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+setView(localStorage.getItem("uat-portal-view") || "cards");
+route();
+
+/* ── Tweaks panel (Look + Density) ── */
+function initTweaks() {
+  const panel = $("#tweaks");
+  const lookWrap = $("#tw-look");
+  lookWrap.innerHTML = LOOKS.map(l =>
+    `<button class="tw-look" data-look="${l.id}" aria-pressed="${l.id === TWEAKS.look}">` +
+    `<span class="tw-look__sw">${l.sw.map(c => `<i style="background:${c}"></i>`).join("")}</span>` +
+    `<span class="tw-look__name">${l.name}</span></button>`).join("");
+  function syncUI() {
+    lookWrap.querySelectorAll(".tw-look").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.look === TWEAKS.look)));
+    $("#tw-density").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.d === TWEAKS.density)));
+  }
+  function save(edits) {
+    Object.assign(TWEAKS, edits);
+    applyTweaks(TWEAKS); syncUI();
+    try { window.parent.postMessage({ type: "__edit_mode_set_keys", edits }, "*"); } catch (e) {}
+  }
+  lookWrap.addEventListener("click", e => { const b = e.target.closest(".tw-look"); if (b) save({ look: b.dataset.look }); });
+  $("#tw-density").addEventListener("click", e => { const b = e.target.closest("button"); if (b) save({ density: b.dataset.d }); });
+  $("#tweaks-close").addEventListener("click", () => { panel.hidden = true; try { window.parent.postMessage({ type: "__edit_mode_dismissed" }, "*"); } catch (e) {} });
+  syncUI();
+  window.addEventListener("message", e => {
+    const d = e.data || {};
+    if (d.type === "__activate_edit_mode") panel.hidden = false;
+    else if (d.type === "__deactivate_edit_mode") panel.hidden = true;
+  });
+  try { window.parent.postMessage({ type: "__edit_mode_available" }, "*"); } catch (e) {}
+}
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initTweaks); else initTweaks();
+</script><!-- TWEAKS PANEL ─────────────────────────────────────────────────── -->
+<aside class="tweaks" id="tweaks" hidden>
+  <div class="tweaks__head"><span>Tweaks</span><button id="tweaks-close" aria-label="Close">&times;</button></div>
+  <div class="tweaks__sec">
+    <div class="tweaks__label">Look</div>
+    <div class="tw-looks" id="tw-look"></div>
+  </div>
+  <div class="tweaks__sec">
+    <div class="tweaks__label">Density</div>
+    <div class="seg seg--tw" id="tw-density">
+      <button data-d="comfortable" aria-pressed="true">Comfortable</button>
+      <button data-d="compact" aria-pressed="false">Compact</button>
+    </div>
+  </div>
+</aside>
+
+</body>
+</html>

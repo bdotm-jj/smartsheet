@@ -1,0 +1,252 @@
+/* ============================================================
+   J&J Insurance Design System 2.0 — Colors & Type tokens
+   Source of truth: J&J Design System 2.0 Figma file
+   ============================================================ */
+
+/* Material Symbols (Material Design icons — referenced in usage
+   guidelines as J&J's primary icon library). */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..700,0..1,-50..200");
+
+/* Typefaces — Montserrat for headings, Open Sans for body. */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap");
+
+:root {
+  /* ─── Brand / Primary palette (blues) — official J&J spec ─── */
+  /* Light Blue */
+  --jj-light-blue:        #E7F5FF;
+  --jj-light-blue-hover:  #D6EAF9;
+  --jj-light-blue-active: #C4DAEB;
+  /* Blue */
+  --jj-blue:        #0069BD;
+  --jj-blue-hover:  #005FAB;
+  --jj-blue-active: #004E8C;
+  /* Dark Blue */
+  --jj-dark-blue:        #005395;
+  --jj-dark-blue-hover:  #003E6F;
+  --jj-dark-blue-active: #003259;
+  /* Darker Blue */
+  --jj-darker-blue: #001E36;
+
+  /* Numeric scale aliases (back-compat with existing components) */
+  --jj-primary-900: var(--jj-darker-blue);   /* deep navy — sidemenus, footers */
+  --jj-primary-800: var(--jj-dark-blue);     /* J&J blue — headers, active card chrome */
+  --jj-primary-700: var(--jj-blue-active);   /* selected card body */
+  --jj-primary-600: var(--jj-blue);          /* link / help-icon blue, info accent */
+  --jj-primary-500: var(--jj-blue-hover);
+  --jj-primary-300: rgb(105, 125, 149);      /* muted blue text — placeholders */
+  --jj-primary-200: var(--jj-light-blue-active); /* input borders */
+  --jj-primary-100: var(--jj-light-blue);    /* card body wash, hover background */
+  --jj-primary-050: rgb(243, 248, 252);
+
+  /* ─── Action / Success (greens — primary CTA) — official J&J spec ─── */
+  --jj-light-green:        #D9FFED;
+  --jj-light-green-hover:  #CBEBDC;
+  --jj-light-green-active: #B6D1C4;
+  --jj-green:        #1D7B4F;
+  --jj-green-hover:  #146D43;
+  --jj-green-active: #165E3C;
+  --jj-dark-green:        #145638;
+  --jj-dark-green-hover:  #114D32;
+  --jj-dark-green-active: #0F402A;
+  --jj-darker-green: #01371D;
+  /* Numeric aliases */
+  --jj-action-900: var(--jj-darker-green);
+  --jj-action-700: var(--jj-dark-green);     /* primary button bg */
+  --jj-action-500: var(--jj-green);
+  --jj-action-300: var(--jj-light-green-active);
+  --jj-action-100: var(--jj-light-green);
+
+  /* ─── Critical / Error (reds) — official J&J spec ─── */
+  --jj-light-red:        #FCF3F3;
+  --jj-light-red-hover:  #FBE2E2;
+  --jj-light-red-active: #F3CECE;
+  --jj-red:        #9D1515;
+  --jj-red-hover:  #891315;
+  --jj-red-active: #6E1010;
+  --jj-dark-red:        #670F0F;
+  --jj-dark-red-hover:  #5F0E0E;
+  --jj-dark-red-active: #4B0C0C;
+  --jj-darker-red: #3E0202;
+  /* Numeric aliases */
+  --jj-critical-700: var(--jj-red-active);
+  --jj-critical-600: var(--jj-red);          /* error border, error icon */
+  --jj-critical-100: var(--jj-light-red);
+
+  /* ─── Warning (orange) — official J&J spec ─── */
+  --jj-light-orange:        #FEF7F1;
+  --jj-light-orange-hover:  #ECE5DE;
+  --jj-light-orange-active: #E0D1C2;
+  --jj-orange:        #C95100;
+  --jj-orange-hover:  #B54900;
+  --jj-orange-active: #9A3E00;
+  --jj-dark-orange:        #823400;
+  --jj-dark-orange-hover:  #742F00;
+  --jj-dark-orange-active: #622800;
+  --jj-darker-orange: #481F00;
+  /* Numeric aliases */
+  --jj-warning-700: var(--jj-orange-active);
+  --jj-warning-500: var(--jj-orange);
+  --jj-warning-100: var(--jj-light-orange);
+
+  /* ─── Neutral / surface palette — official J&J spec ─── */
+  /* White */
+  --jj-white:        #FFFFFF;
+  --jj-white-hover:  #EEEEEE;
+  --jj-white-active: #DDDDDD;
+  /* Black */
+  --jj-black:        #121212;
+  --jj-black-hover:  #212121;
+  --jj-black-active: #393939;
+  /* Light Gray */
+  --jj-light-gray:        #F9F9F9;
+  --jj-light-gray-hover:  #EFEFEF;
+  --jj-light-gray-active: #DFDFDF;
+  /* Gray */
+  --jj-gray:        #D6D6D6;
+  --jj-gray-hover:  #CDCDCD;
+  --jj-gray-active: #B0B0B0;
+  /* Dark Gray */
+  --jj-dark-gray:        #A5A5A5;
+  --jj-dark-gray-hover:  #858585;
+  --jj-dark-gray-active: #666666;
+
+  /* Numeric aliases (back-compat) */
+  --jj-neutral-000: var(--jj-white);
+  --jj-neutral-050: var(--jj-light-gray);
+  --jj-neutral-100: var(--jj-white-hover);     /* hover surfaces, active card bg */
+  --jj-neutral-200: var(--jj-light-gray-hover);
+  --jj-neutral-300: var(--jj-gray);            /* disabled fill, subtle borders */
+  --jj-neutral-400: var(--jj-dark-gray);
+  --jj-neutral-500: var(--jj-dark-gray-hover);
+  --jj-neutral-700: var(--jj-dark-gray-active);
+  --jj-neutral-800: var(--jj-black-active);    /* body label text */
+  --jj-neutral-900: var(--jj-black);           /* headings */
+
+  /* ─── Semantic foreground / background ─── */
+  --jj-fg-default:    var(--jj-neutral-900);
+  --jj-fg-muted:      var(--jj-neutral-800);
+  --jj-fg-subtle:     var(--jj-primary-300);
+  --jj-fg-onPrimary:  var(--jj-neutral-000);
+  --jj-fg-link:       var(--jj-primary-600);
+  --jj-fg-success:    var(--jj-action-700);
+  --jj-fg-warning:    var(--jj-warning-700);
+  --jj-fg-critical:   var(--jj-critical-600);
+
+  --jj-bg-page:       var(--jj-neutral-000);
+  --jj-bg-surface:    var(--jj-neutral-000);
+  --jj-bg-subtle:     var(--jj-primary-100);
+  --jj-bg-disabled:   var(--jj-neutral-300);
+  --jj-bg-hover:      var(--jj-neutral-100);
+  --jj-bg-pressed:    var(--jj-neutral-100);
+  --jj-bg-header:     var(--jj-primary-800);
+  --jj-bg-sidebar:    var(--jj-primary-900);
+
+  --jj-border-default: var(--jj-primary-200);
+  --jj-border-strong:  var(--jj-neutral-700);
+  --jj-border-critical:var(--jj-critical-600);
+
+  /* ─── Radii — multiples of 5, up to 25.
+     Pick the smallest that reads as "rounded" for the surface. ─── */
+  --jj-radius-5:  5px;
+  --jj-radius-10: 10px;
+  --jj-radius-15: 15px;
+  --jj-radius-20: 20px;
+  --jj-radius-25: 25px;
+  --jj-radius-pill: 999px;
+  /* Aliases (back-compat) */
+  --jj-radius-xs: var(--jj-radius-5);
+  --jj-radius-sm: var(--jj-radius-5);
+  --jj-radius-md: var(--jj-radius-10);
+  --jj-radius-lg: var(--jj-radius-15);
+
+  /* ─── Spacing — strict 4-pt grid. Use freely; always a multiple of 4. ─── */
+  --jj-space-1: 4px;
+  --jj-space-2: 8px;
+  --jj-space-3: 12px;
+  --jj-space-4: 16px;
+  --jj-space-5: 20px;
+  --jj-space-6: 24px;
+  --jj-space-8: 32px;
+  --jj-space-10: 40px;
+  --jj-space-12: 48px;
+
+  /* ─── Elevation — official J&J spec.
+     4 simple levels. Most elements are flat; use elevation sparingly.
+     Level 1 is the subtlest, Level 4 the most prominent. ─── */
+  --jj-elevation-0: none;
+  --jj-elevation-1: 0 1px 2px 0 rgba(18, 18, 18, .08);
+  --jj-elevation-2: 0 2px 6px 0 rgba(18, 18, 18, .10);
+  --jj-elevation-3: 0 6px 12px 0 rgba(18, 18, 18, .12);
+  --jj-elevation-4: 0 12px 24px 0 rgba(18, 18, 18, .14);
+  --jj-elevation-pressed: inset 3px 3px 6px 0 rgba(0,0,0,.32);
+  --jj-elevation-pressed-strong: inset 4px 4px 4px 0 rgba(0,0,0,.32);
+
+  /* ─── Type ─── */
+  --jj-font-display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --jj-font-body:    "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  --jj-font-mono:    ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Type scale — 6 official heading sizes per J&J spec, plus body/label.
+     Headings render in Open Sans Bold; Title-6 is uppercased.
+     Body 14/20 is the production default. */
+  --jj-text-title-1: 700 28px/32px var(--jj-font-display);
+  --jj-text-title-2: 700 22px/28px var(--jj-font-display);
+  --jj-text-title-3: 700 18px/24px var(--jj-font-display);
+  --jj-text-title-4: 700 16px/20px var(--jj-font-display);
+  --jj-text-title-5: 700 14px/20px var(--jj-font-display);
+  --jj-text-title-6: 700 12px/16px var(--jj-font-display);
+
+  /* Legacy aliases (kept for back-compat with existing components) */
+  --jj-text-display-1: var(--jj-text-title-1);
+  --jj-text-display-2: var(--jj-text-title-1);
+  --jj-text-h1: var(--jj-text-title-1);
+  --jj-text-h2: var(--jj-text-title-2);
+  --jj-text-h3: var(--jj-text-title-3);
+  --jj-text-h4: var(--jj-text-title-4);
+  --jj-text-body:    400 14px/20px var(--jj-font-body);
+  --jj-text-body-lg: 400 16px/24px var(--jj-font-body);
+  --jj-text-body-sm: 400 12px/16px var(--jj-font-body);
+  --jj-text-label:   300 14px/20px var(--jj-font-body); /* italic field-label style */
+  --jj-text-button:  700 14px/20px var(--jj-font-body);
+  --jj-text-eyebrow: 600 12px/16px var(--jj-font-body);
+
+  /* Body scale — 4 sizes (XL/L/N/S) × 4 styles (regular/medium/bold/underlined).
+     Open Sans throughout, per J&J body-type spec. */
+  --jj-text-body-xl-regular:  400 18px/24px var(--jj-font-body);
+  --jj-text-body-xl-medium:   600 18px/24px var(--jj-font-body);
+  --jj-text-body-xl-bold:     700 18px/24px var(--jj-font-body);
+  --jj-text-body-l-regular:   400 16px/24px var(--jj-font-body);
+  --jj-text-body-l-medium:    600 16px/24px var(--jj-font-body);
+  --jj-text-body-l-bold:      700 16px/24px var(--jj-font-body);
+  --jj-text-body-n-regular:   400 14px/20px var(--jj-font-body);
+  --jj-text-body-n-medium:    600 14px/20px var(--jj-font-body);
+  --jj-text-body-n-bold:      700 14px/20px var(--jj-font-body);
+  --jj-text-body-s-regular:   400 12px/16px var(--jj-font-body);
+  --jj-text-body-s-medium:    600 12px/16px var(--jj-font-body);
+  --jj-text-body-s-bold:      700 12px/16px var(--jj-font-body);
+}
+
+/* Semantic typography classes — mirror role-based use in the kit. */
+.jj-display-1 { font: var(--jj-text-display-1); color: var(--jj-fg-default); letter-spacing: -0.01em; }
+.jj-display-2 { font: var(--jj-text-display-2); color: var(--jj-fg-default); letter-spacing: -0.01em; }
+.jj-h1 { font: var(--jj-text-h1); color: var(--jj-fg-default); }
+.jj-h2 { font: var(--jj-text-h2); color: var(--jj-fg-default); }
+.jj-h3 { font: var(--jj-text-h3); color: var(--jj-fg-default); }
+.jj-h4 { font: var(--jj-text-h4); color: var(--jj-fg-default); }
+.jj-body    { font: var(--jj-text-body); color: var(--jj-fg-muted); }
+.jj-body-lg { font: var(--jj-text-body-lg); color: var(--jj-fg-muted); }
+.jj-body-sm { font: var(--jj-text-body-sm); color: var(--jj-fg-muted); }
+.jj-label   { font: var(--jj-text-label); font-style: italic; color: var(--jj-fg-muted); }
+.jj-eyebrow { font: var(--jj-text-eyebrow); color: var(--jj-fg-subtle); text-transform: uppercase; letter-spacing: .08em; }
+.jj-link    { color: var(--jj-fg-link); text-decoration: underline; text-underline-offset: 2px; }
+.jj-link:hover { color: var(--jj-primary-700); }
+
+/* Reset baseline so previews look right out of the box. */
+.jj-reset, .jj-reset * { box-sizing: border-box; }
+.jj-reset {
+  font: var(--jj-text-body);
+  color: var(--jj-fg-muted);
+  background: var(--jj-bg-page);
+  -webkit-font-smoothing: antialiased;
+}
