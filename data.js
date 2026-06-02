@@ -9,7 +9,7 @@ window.PODS = [
     roster: {
       PM:  ["Jason Daniels"],
       PJM: ["Ayrielle Jackson"],
-      Dev: ["Erin Terre", "Aleisha DeYoung"],
+      Dev: ["Erin Terre", "Aleisha DeYoung", "Candace Moreau"],
       QA:  []
     }
   },
@@ -87,7 +87,7 @@ window.PODS = [
     roster: {
       PM:  ["Christin Albrecht", "Michael Rast"],
       PJM: ["Abdoul Balla", "Jameka Blanchard"],
-      Dev: ["Rimon Berhe", "Amanda Esposito", "Seth Burleson", "Sarah Criswell", "Scott Gallimore", "Kevin Nichols", "Candace Moreau"],
+      Dev: ["Rimon Berhe", "Amanda Esposito", "Seth Burleson", "Sarah Criswell", "Scott Gallimore", "Kevin Nichols"],
       QA:  ["Jimmy Harper", "Noah LoCascio", "Britt Heyward"]
     }
   },
