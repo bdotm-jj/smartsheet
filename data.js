@@ -46,8 +46,7 @@ window.PODS = [
     code: "FL",
     pjm: "jameka",
     roster: {
-      PM:  ["Catherine Sanders", "Ashton Anthony"],
-      PJM: ["Jameka Blanchard"],
+      PM:  ["Catherine Sanders", "Ashton Anthony", "John Klein"],
       Dev: ["Adam Koehler", "Alex Secor"],
       QA:  ["Brittany Grizzard"]
     }
