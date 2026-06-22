@@ -8,13 +8,13 @@ function App() {
   // Stats
   const allPeople = useMemo(() => {
     const set = new Set();
-    window.PODS.forEach(p => Object.values(p.roster).forEach(l => l.forEach(n => set.add(n))));
+    window.PODS.forEach(p => Object.values(p.roster).forEach(l => Array.isArray(l) && l.forEach(n => set.add(n))));
     return [...set];
   }, []);
   const totalPjms = window.PJMS.length;
   const totalPods = window.PODS.length;
   const totalDevQa = useMemo(() => {
-    return window.PODS.reduce((a, p) => a + p.roster.Dev.length + p.roster.QA.length, 0);
+    return window.PODS.reduce((a, p) => a + (p.roster.Dev?.length || 0) + (p.roster.QA?.length || 0), 0);
   }, []);
 
   const personOnPods = useMemo(() => {
@@ -48,7 +48,7 @@ function App() {
       <header className="cover">
         <div className="cover-meta">
           <div className="l">J&amp;J <strong>DIT</strong> — Internal Directory</div>
-          <div className="c">VOL. <strong>I</strong> · ISSUE <strong>05 / 2026</strong></div>
+          <div className="c">VOL. <strong>I</strong> · ISSUE <strong>05·29 / 2026</strong></div>
           <div className="r">A Roster of Working Groups</div>
         </div>
 
@@ -179,8 +179,8 @@ function App() {
 
       <div className="signoff">
         <div>J&amp;J Insurance · DIT</div>
-        <div className="pharrell">Quietly assembled, May 2026</div>
-        <div>Edition I · 05 · 26</div>
+        <div className="pharrell">Quietly assembled, May 29 2026</div>
+        <div>Edition I · 05·29 · 26</div>
       </div>
 
       {/* Tweaks removed — design locked to Dossier */}
