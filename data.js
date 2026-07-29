@@ -5,10 +5,10 @@ window.PODS = [
     name: "Architecture",
     lob: "Tech Initiatives",
     code: "ARC",
-    pjm: "ayrielle",
+    pjm: "madison",
     roster: {
       PM:  ["Jason Daniels"],
-      PJM: ["Ayrielle Jackson"],
+      PJM: ["Madison Trumble"],
       Dev: ["Erin Terre", "Aleisha DeYoung", "Candace Moreau"],
       QA:  []
     }
@@ -34,7 +34,7 @@ window.PODS = [
     pjm: "michelle",
     roster: {
       PM:  ["Alex Scavo"],
-      PJM: ["Michelle DiBattista", "Andy Oates"],
+      PJM: ["Michelle DiBattista"],
       Dev: ["Rachel Fein", "Brooke Caro", "Allen McAfee"],
       QA:  []
     }
@@ -70,10 +70,10 @@ window.PODS = [
     name: "New Capacity",
     lob: "Compliance",
     code: "NC",
-    pjm: "ayrielle",
+    pjm: "madison",
     roster: {
       PM:  ["Will Rotate"],
-      PJM: ["Ayrielle Jackson"],
+      PJM: ["Madison Trumble"],
       Dev: ["Connor Yates", "Tony Young", "Michael Byers"],
       QA:  ["Britt Heyward", "Sarah Carlough"]
     }
@@ -86,7 +86,7 @@ window.PODS = [
     pjm: "abdoul",
     roster: {
       PM:  ["Christin Albrecht", "Michael Rast"],
-      PJM: ["Abdoul Balla", "Jameka Blanchard"],
+      PJM: ["Abdoul Balla"],
       Dev: ["Rimon Berhe", "Amanda Esposito", "Seth Burleson", "Sarah Criswell", "Scott Gallimore", "Kevin Nichols"],
       QA:  ["Jimmy Harper", "Noah LoCascio", "Britt Heyward"]
     }
@@ -96,10 +96,10 @@ window.PODS = [
     name: "Program Pod",
     lob: "Program",
     code: "PR",
-    pjm: "ayrielle",
+    pjm: "jameka",
     roster: {
       PM:  ["Catherine Sanders", "Ashton Anthony"],
-      PJM: ["Ayrielle Jackson"],
+      PJM: ["Jameka Blanchard"],
       Dev: ["Eric Stembert", "Nick Haile"],
       QA:  ["Nherissa Dagal"]
     }
