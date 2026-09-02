@@ -7,7 +7,7 @@ window.PODS = [
     code: "ARC",
     pjm: "nilda",
     roster: {
-      PM:  ["Jason Daniels", "Brett Hardiman", "John Klein"],
+      PM:  ["Brett Hardiman", "John Klein"],
       PJM: ["Nilda Meadows"],
       Dev: ["Erin Terre", "Aleisha DeYoung", "Candace Moreau"],
       QA:  ["Sarah Carlough"]
