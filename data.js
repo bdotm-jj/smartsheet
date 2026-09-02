@@ -22,7 +22,7 @@ window.PODS = [
     roster: {
       PM:  ["Ashton Anthony", "Katie Wiggins"],
       PJM: ["Madison Trumble"],
-      Dev: ["Colin Knecht", "Eman Zindani", "Connor Yates", "Dustin White", "JC Collins"],
+      Dev: ["Colin Knecht", "Eman Zindani", "Dustin White", "JC Collins"],
       QA:  ["Avery May", "Katherine Theos"]
     }
   },
@@ -87,7 +87,7 @@ window.PODS = [
     roster: {
       PM:  ["Christin Albrecht", "Michael Rast", "Ashley King"],
       PJM: ["Abdoul Balla"],
-      Dev: ["Rimon Berhe", "Amanda Esposito", "Seth Burleson", "Sarah Criswell", "Scott Gallimore"],
+      Dev: ["Rimon Berhe", "Amanda Esposito", "Seth Burleson", "Sarah Criswell", "Scott Gallimore", "Connor Yates"],
       QA:  ["Jimmy Harper", "Noah LoCascio", "Britt Heyward"]
     }
   },
@@ -113,7 +113,7 @@ window.PODS = [
     roster: {
       PM:  ["Alex Scavo"],
       PJM: ["Michelle DiBattista"],
-      Dev: ["Mike Thompson", "Michael Tessari", "John Cauthen", "Frank Hrach", "Philippe Baraka"],
+      Dev: ["Mike Thompson", "Michael Tessari", "John Cauthen", "Frank Hrach", "Philippe Baraka", "Quinn James", "Anastasia Holt", "Holland Cooper"],
       QA:  ["Jenny Welk", "Lee Ann Madar"],
       Other: ["Lavona Williams"]
     }
