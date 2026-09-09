@@ -70,10 +70,10 @@ window.PODS = [
     name: "New Capacity",
     lob: "Compliance",
     code: "NC",
-    pjm: "nilda",
+    pjm: "madison",
     roster: {
       PM:  ["Will Rotate"],
-      PJM: ["Nilda Meadows"],
+      PJM: ["Madison Trumble"],
       Dev: ["Kevin Nichols", "Michael Wood", "Tony Young", "Michael Byers"],
       QA:  ["Pam Barwick", "Sarah Carlough"]
     }
