@@ -6,15 +6,24 @@ function App() {
   const [activePerson, setActivePerson] = useState(null);
 
   // Stats
-  const allPeople = useMemo(() => {
+  const totalPjms = useMemo(() => {
     const set = new Set();
-    window.PODS.forEach(p => Object.values(p.roster).forEach(l => Array.isArray(l) && l.forEach(n => set.add(n))));
-    return [...set];
+    window.PODS.forEach(p => (p.roster.PJM || []).forEach(n => set.add(n)));
+    return set.size;
   }, []);
-  const totalPjms = window.PJMS.length;
   const totalPods = window.PODS.length;
+  const totalPm = useMemo(() => {
+    const set = new Set();
+    window.PODS.forEach(p => (p.roster.PM || []).forEach(n => set.add(n)));
+    return set.size;
+  }, []);
   const totalDevQa = useMemo(() => {
-    return window.PODS.reduce((a, p) => a + (p.roster.Dev?.length || 0) + (p.roster.QA?.length || 0), 0);
+    const set = new Set();
+    window.PODS.forEach(p => {
+      (p.roster.Dev || []).forEach(n => set.add(n));
+      (p.roster.QA || []).forEach(n => set.add(n));
+    });
+    return set.size;
   }, []);
 
   const personOnPods = useMemo(() => {
@@ -73,13 +82,13 @@ function App() {
           </div>
           <div className="toc-item">
             <div className="toc-num">III.</div>
-            <div className="toc-head">Engineering</div>
-            <div className="toc-sub">{totalDevQa} Dev &amp; QA practitioners.</div>
+            <div className="toc-head">Product Manager</div>
+            <div className="toc-sub">{totalPm} PMs across the org.</div>
           </div>
           <div className="toc-item">
             <div className="toc-num">IV.</div>
-            <div className="toc-head">Practice</div>
-            <div className="toc-sub">{allPeople.length} unique people on the floor.</div>
+            <div className="toc-head">Engineering</div>
+            <div className="toc-sub">{totalDevQa} Dev &amp; QA practitioners.</div>
           </div>
         </div>
       </header>
