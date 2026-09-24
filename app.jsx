@@ -57,7 +57,7 @@ function App() {
       <header className="cover">
         <div className="cover-meta">
           <div className="l">J&amp;J <strong>DIT</strong> — Internal Directory</div>
-          <div className="c">VOL. <strong>I</strong> · ISSUE <strong>05·29 / 2026</strong></div>
+          <div className="c">VOL. <strong>II</strong> · ISSUE <strong>09·24 / 2026</strong></div>
           <div className="r">A Roster of Working Groups</div>
         </div>
 
@@ -82,7 +82,7 @@ function App() {
           </div>
           <div className="toc-item">
             <div className="toc-num">III.</div>
-            <div className="toc-head">Product Manager</div>
+            <div className="toc-head">Product Managers</div>
             <div className="toc-sub">{totalPm} PMs across the org.</div>
           </div>
           <div className="toc-item">
@@ -189,7 +189,7 @@ function App() {
       <div className="signoff">
         <div>J&amp;J Insurance · DIT</div>
         <div className="pharrell">Quietly assembled, May 29 2026</div>
-        <div>Edition I · 05·29 · 26</div>
+        <div>Vol II · 09·24 · 26</div>
       </div>
 
       {/* Tweaks removed — design locked to Dossier */}
