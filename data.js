@@ -9,7 +9,7 @@ window.PODS = [
     roster: {
       PM:  ["Brett Hardiman", "John Klein"],
       PJM: ["Nilda Meadows"],
-      Dev: ["Erin Terre", "Aleisha DeYoung", "Candace Moreau"],
+      Dev: ["Erin Terre", "Aleisha DeYoung"],
       QA:  ["Sarah Carlough"]
     }
   },
